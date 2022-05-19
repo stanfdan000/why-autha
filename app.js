@@ -2,8 +2,8 @@ import { signUpUser, signInUser, } from '../fetch-utils.js';
 //import { signInUser, } from "./fetch-utils.js";
 
 const signInForm = document.getElementById('sign-in');
-const signInEmail = document.getElementById('sign-in-email');
-const signInPassword = document.getElementById('sign-in-password');
+//const signInEmail = document.getElementById('sign-in-email');
+//const signInPassword = document.getElementById('sign-in-password');
 
 const signUpForm = document.getElementById('sign-up');
 
@@ -26,7 +26,7 @@ signUpForm.addEventListener('submit', async (event) => {
 signInForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     const data = new FormData(signInForm);
-    const user = await signInUser(data.get(signInEmail), data.get(signInPassword));
+    const user = await signInUser(data.get('email'), data.get('password'));
     if (user) {
         location.replace('./other-page');
     }
